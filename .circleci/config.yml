@@ -60,7 +60,7 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             npm run api:install
-            npm run api:deploy
+            npm run deploy
             
 workflows:
   udagram:
@@ -74,7 +74,6 @@ workflows:
           type: approval
           requires:
             - build
-      - deploy
       - deploy:
           requires:
             - hold
