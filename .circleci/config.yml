@@ -59,6 +59,7 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
+            chmod +x deploy.sh && deploy.sh 
             npm run api:install
             npm run deploy
             
@@ -74,6 +75,7 @@ workflows:
           type: approval
           requires:
             - build
+      - deploy
       - deploy:
           requires:
             - hold
