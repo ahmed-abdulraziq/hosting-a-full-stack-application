@@ -69,7 +69,7 @@ jobs:
           name: Front-End Build
           # TODO: Install, build, deploy in both apps
           command: |
-            npm run api:build
+            npm run frontend:build
       - run:
           name: Deploy App front
           # TODO: Install, build, deploy in both apps
