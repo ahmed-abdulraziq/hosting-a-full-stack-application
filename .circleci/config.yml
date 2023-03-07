@@ -56,11 +56,25 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - run:
-          name: Deploy App
+          name: Deploy App api
           # TODO: Install, build, deploy in both apps
           command: |
-            npm run api:install
-            npm run deploy
+            npm run api:deploy
+      - run:
+          name: Front-End install
+          # TODO: Install, build, deploy in both apps
+          command: |
+            npm run frontend:install
+      - run:
+          name: Front-End Build
+          # TODO: Install, build, deploy in both apps
+          command: |
+            npm run frontend:build
+      - run:
+          name: Deploy App front
+          # TODO: Install, build, deploy in both apps
+          command: |
+            npm run frontend:deploy    
 
 workflows:
   udagram:
@@ -74,6 +88,7 @@ workflows:
           type: approval
           requires:
             - build
+      - deploy
       - deploy:
           requires:
             - hold
